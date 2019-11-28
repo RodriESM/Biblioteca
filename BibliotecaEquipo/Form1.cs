@@ -25,7 +25,11 @@ namespace BibliotecaEquipo
 
         private void Form1_Load(object sender, EventArgs e)
             {
-           
+
+            //La hacemos Clase padre
+            IsMdiContainer=true;
+            //Maximizamos su tamaño al abrirla
+            WindowState=FormWindowState.Maximized;
 
             }
 
@@ -66,12 +70,13 @@ namespace BibliotecaEquipo
             f.Controls.Add(BtnAcceder);
 
             f.FormBorderStyle=FormBorderStyle.FixedToolWindow;
-
             f.Show();
 
             f.BringToFront();
 
             }
+
+
 
 
         }
