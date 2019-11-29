@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BibliotecaEquipo
     {
-    public partial class Form1 : Form
+    public partial class Principal : Form
         {
-        public Form1()
+        public Principal()
             {
             InitializeComponent();
             }
@@ -21,6 +21,7 @@ namespace BibliotecaEquipo
         Label LabUsuario;
         Button BtnAcceder;
 
+        List<IUsuario> listaUsuario = new List<IUsuario>();
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,8 +77,62 @@ namespace BibliotecaEquipo
 
             }
 
+        private void AltaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+            Boolean encontrado = false;
+            foreach (Form f in MdiChildren)
+                {
 
+                if (f.GetType().ToString().Contains("AltaUsuario"))
+                    {
+                    f.BringToFront();
+                    encontrado=true;
+                    }
+                }
 
+            if (!encontrado)
+                {
+                //Creamos un objeto de tipo Alta
+                AltaUsuario objetoAltaUsuario = new AltaUsuario();
+                //Si ya hay una abierta no abre más
 
+                //Le indicamos que este es el padre
+                objetoAltaUsuario.MdiParent=this;
+                //Lo mostramos
+                objetoAltaUsuario.Show();
+                //Maximizamos su tamaño al abrirla
+                objetoAltaUsuario.WindowState=FormWindowState.Maximized;
+                }
+
+            }
+
+        private void LibrosToolStripMenuItem1_Click(object sender, EventArgs e)
+            {
+
+            Boolean encontrado = false;
+            foreach (Form f in MdiChildren)
+                {
+
+                if (f.GetType().ToString().Contains("AltaLibro"))
+                    {
+                    f.BringToFront();
+                    encontrado=true;
+                    }
+                }
+
+            if (!encontrado)
+                {
+                //Creamos un objeto de tipo Alta
+                AltaLibro objetoAltaLibro = new AltaLibro();
+                //Si ya hay una abierta no abre más
+
+                //Le indicamos que este es el padre
+                objetoAltaLibro.MdiParent=this;
+                //Lo mostramos
+                objetoAltaLibro.Show();
+                //Maximizamos su tamaño al abrirla
+                objetoAltaLibro.WindowState=FormWindowState.Maximized;
+                }
+            }
         }
     }

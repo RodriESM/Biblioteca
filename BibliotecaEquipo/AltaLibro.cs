@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Biblioteca
-{
-    public partial class Form1 : Form
+namespace BibliotecaEquipo
     {
-        public Form1()
+    public partial class AltaLibro : Form
         {
+        public AltaLibro()
+            {
             InitializeComponent();
+            }
         }
     }
-}
